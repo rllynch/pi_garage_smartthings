@@ -168,7 +168,8 @@ def initialize() {
     }
 
     // Subscribe immediately, then once every ten minutes
-    schedule("0 */10 * * * ?", "subscribeToDevices")
+    unschedule()
+    schedule("0 0/10 * * * ?", subscribeToDevices)
     subscribeToDevices()
 }
 
