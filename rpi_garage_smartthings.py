@@ -133,9 +133,16 @@ class StatusServer(resource.Resource):
             if not cb_url in self.subscription_list:
                 self.subscription_list[cb_url] = {}
                 logging.info('Added subscription %s', cb_url)
+            else:
+                logging.info('Refreshed subscription %s', cb_url)
             self.subscription_list[cb_url]['expiration'] = time() + 24 * 3600
 
-        return ""
+        if self.garage_door_status['last_state'] == 'closed':
+            cmd = 'status-closed'
+        else:
+            cmd = 'status-open'
+        msg = '<msg><cmd>%s</cmd><usn>uuid:%s::%s</usn></msg>' % (cmd, UUID, self.device_target)
+        return msg
 
     def render_GET(self, request): # pylint: disable=invalid-name
         """Handle polling requests from ST hub"""

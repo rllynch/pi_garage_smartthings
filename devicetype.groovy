@@ -119,15 +119,15 @@ def getRequest(path) {
 def poll() {
     log.debug "Executing 'poll' from ${device.deviceNetworkId} "
 
-    def path = getDataValue("ssdpPath")
-    getRequest(path)
+    subscribeAction(getDataValue("ssdpPath"))
 }
 
 def refresh() {
     log.debug "Executing 'refresh'"
 
-    def path = getDataValue("ssdpPath")
-    getRequest(path)
+    //def path = getDataValue("ssdpPath")
+    //getRequest(path)
+    subscribeAction(getDataValue("ssdpPath"))
 }
 
 def subscribe() {
