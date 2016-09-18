@@ -55,7 +55,7 @@ def parse(String description) {
 
         log.debug "Processing command ${cmd} for ${targetUsn}"
 
-        parent.getChildDevices().each { child ->
+        parent.getAllChildDevices().each { child ->
             def childUsn = child.getDataValue("ssdpUSN").toString()
             if (childUsn == targetUsn) {
                 if (cmd == 'poll') {
