@@ -102,7 +102,7 @@ def locationHandler(evt) {
             }
 
             if (deviceChangedValues) {
-                def children = getChildDevices()
+                def children = getAllChildDevices()
                 children.each {
                     if (it.getDeviceDataByName("ssdpUSN") == parsedEvent.ssdpUSN) {
                         //it.subscribe(parsedEvent.ip, parsedEvent.port)
@@ -147,7 +147,7 @@ def initialize() {
         }
 
         // Check if child already exists
-        def d = getChildDevices()?.find {
+        def d = getAllChildDevices()?.find {
             it.device.deviceNetworkId == dni
         }
 
