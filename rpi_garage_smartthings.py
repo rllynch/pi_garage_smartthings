@@ -38,7 +38,7 @@ from zope.interface import implements
 SSDP_PORT = 1900
 SSDP_ADDR = '239.255.255.250'
 UUID = 'd1c58eb4-9220-11e4-96fa-123b93f75cba'
-SEARCH_RESPONSE = 'HTTP/1.1 200 OK\r\nCACHE-CONTROL:max-age=30\r\nEXT:\r\nLOCATION:%s\r\nSERVER:Linux, UPnP/1.0, Pi_Garage/1.0\r\nST:%s\r\nUSN:uuid:%s::%s'
+SEARCH_RESPONSE = 'HTTP/1.1 200 OK\r\nCACHE-CONTROL:max-age=30\r\nEXT:\r\nLOCATION:%s\r\nSERVER:Linux, UPnP/1.0, Pi_Garage/1.0\r\nST:%s\r\nUSN:uuid:%s::%s\r\n'
 
 def determine_ip_for_host(host):
     """Determine local IP address used to communicate with a particular host"""
